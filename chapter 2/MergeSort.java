@@ -13,10 +13,15 @@ public class MergeSort {
     }
 
     static void sort(int[] A, int l, int r) {
+        // break the array till peaces of size 1
         if (l < r) {
+            // finding the middle of every subarray
             int m = l + (r - l) / 2;
+            // sorting the first half
             sort(A, l, m);
+            // sorting the second half
             sort(A, m + 1, r);
+            // merging both
             merge(A, l, m, r);
         }
     }
@@ -24,7 +29,9 @@ public class MergeSort {
     // first array A[l , m]
     // second array A[m+1 , r]
     static void merge(int[] A, int l, int m, int r) {
+        // size of first array
         int s1 = m - l + 1;
+        // size of second array
         int s2 = r - m;
         int[] L = new int[s1];
         int[] R = new int[s2];
